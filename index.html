@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Happy Anniversary Mummy & Papa ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Boo Boo ❤️</title>
 
 <style>
 
@@ -12,97 +11,287 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-height:100vh;
 overflow:hidden;
-background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
-display:flex;
+background:#ffe4ec;
+}
+
+/* Pages */
+
+.page{
+display:none;
+width:100%;
+height:100vh;
+position:relative;
+overflow:hidden;
 justify-content:center;
 align-items:center;
-position:relative;
-color:white;
-}
-
-.card{
-width:90%;
-max-width:700px;
+flex-direction:column;
 text-align:center;
-padding:25px;
-border-radius:25px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-z-index:10;
+padding:20px;
 }
 
-h1{
-font-size:2rem;
-color:#FFD700;
-margin-bottom:10px;
+.active{
+display:flex;
+}
+
+/* Floating Hearts */
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
 }
 
 .heart{
-font-size:60px;
-animation:beat 1s infinite;
-}
-
-@keyframes beat{
-50%{
-transform:scale(1.2);
-}
-}
-
-.message{
-font-size:1.1rem;
-line-height:1.7;
-margin-top:15px;
-}
-
-.footer{
-margin-top:18px;
-font-size:1rem;
-color:#FFD700;
-font-weight:bold;
-}
-
-.floating-heart{
 position:absolute;
-bottom:-50px;
-font-size:30px;
-animation:rise linear forwards;
-z-index:1;
+bottom:-20px;
+color:#ff4d88;
+animation:floatUp linear infinite;
 }
 
-@keyframes rise{
-from{
-transform:translateY(0);
-opacity:1;
-}
-to{
-transform:translateY(-120vh);
-opacity:0;
-}
-}
-
-.firework{
-position:absolute;
-width:8px;
-height:8px;
-border-radius:50%;
-background:#FFD700;
-animation:explode 1.8s ease-out forwards;
-}
-
-@keyframes explode{
+@keyframes floatUp{
 0%{
-transform:scale(0);
+transform:translateY(0) rotate(0deg);
 opacity:1;
 }
 100%{
-transform:scale(18);
+transform:translateY(-120vh) rotate(360deg);
 opacity:0;
+}
+}
+
+/* PAGE 1 */
+
+#page1{
+background:linear-gradient(135deg,#ffd6e7,#fff0f6);
+}
+
+.title{
+font-size:3rem;
+color:#ff0066;
+margin-bottom:20px;
+}
+
+.subtitle{
+font-size:1.3rem;
+color:#555;
+margin-bottom:30px;
+}
+
+.meter-container{
+width:85%;
+max-width:600px;
+background:white;
+border-radius:50px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.meter{
+height:40px;
+width:0%;
+background:linear-gradient(90deg,#ff4d88,#ff1493);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:bold;
+transition:.2s;
+}
+
+.cute-msg{
+margin-top:20px;
+font-size:1.2rem;
+font-weight:bold;
+color:#ff0066;
+display:none;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:#ff4d88;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+#nextBtn{
+display:none;
+}
+
+/* PAGE 2 */
+
+#page2{
+background:linear-gradient(to bottom,#fff9d6,#fff2a6);
+}
+
+.sunflower{
+position:absolute;
+font-size:35px;
+animation:sunflowerFloat linear infinite;
+opacity:.8;
+}
+
+@keyframes sunflowerFloat{
+0%{
+transform:translateY(100vh) rotate(0deg);
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+}
+}
+
+.heading{
+font-size:2.5rem;
+color:#a36b00;
+margin-bottom:30px;
+}
+
+.cards{
+display:flex;
+flex-direction:column;
+gap:20px;
+width:90%;
+max-width:700px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+color:#ff4d88;
+}
+
+.message{
+display:none;
+margin-top:15px;
+font-size:1.1rem;
+color:#444;
+line-height:1.6;
+}
+
+.card.open{
+background:#fff0f6;
+}
+
+#proposalBtn{
+display:none;
+}
+
+/* PAGE 3 */
+
+#page3{
+background:linear-gradient(180deg,#07142b,#162f59);
+color:white;
+}
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+50%{
+opacity:.2;
+}
+}
+
+.proposal-container{
+z-index:5;
+}
+
+.proposal-animation{
+font-size:100px;
+margin-bottom:30px;
+}
+
+.proposal-text{
+font-size:1.4rem;
+max-width:800px;
+line-height:1.8;
+padding:20px;
+display:none;
+}
+
+.choice-buttons{
+display:none;
+margin-top:25px;
+}
+
+.choice-buttons button{
+margin:10px;
+padding:15px 25px;
+border:none;
+border-radius:30px;
+background:#ff4d88;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.final-message{
+display:none;
+font-size:2rem;
+margin-top:30px;
+color:#ffd700;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.05);
+}
+}
+
+/* Confetti */
+
+.confetti{
+position:absolute;
+font-size:25px;
+animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+0%{
+transform:translateY(-100px) rotate(0deg);
+}
+100%{
+transform:translateY(120vh) rotate(720deg);
 }
 }
 
@@ -111,92 +300,354 @@ opacity:0;
 
 <body>
 
-<div class="card">
+<div class="hearts" id="hearts"></div>
 
-<div class="heart">❤️</div>
+<!-- PAGE 1 -->
 
-<h1>Happy Wedding Anniversary</h1>
+<div class="page active" id="page1">
 
-<h2>Mummy & Papa 💑</h2>
+<h1 class="title">Boo Boo Cuteness Scanner 🌻💕</h1>
 
-<div class="message">
-Thank you for teaching us the meaning of love,
-trust and togetherness.
+<p class="subtitle">
+Analyzing maximum cuteness levels...
+</p>
 
-Your journey inspires us every day.
-
-May your bond continue to grow stronger,
-your smiles brighter,
-and your hearts happier.
-
-❤️ Wishing you many more beautiful years together ❤️
+<div class="meter-container">
+<div class="meter" id="meter">0%</div>
 </div>
 
-<div class="footer">
-With Love 🌹<br>
-Your Loving Child
+<div class="cute-msg" id="cuteMsg">
+⚠️ Too much cuteness to handle!<br>
+Boo Boo has exceeded all known limits of cuteness. 💕🌻🥺
+</div>
+
+<button class="btn" id="nextBtn" onclick="showPage(2)">
+Press Me Boo Boo 💕
+</button>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<h1 class="heading">
+3 Reasons Why You're My Favorite Person 🌻
+</h1>
+
+<div class="cards">
+
+<div class="card" onclick="openCard(this)">
+<h3>Open Sunflower #1 🌻</h3>
+<div class="message">
+Out of all the people in this world, you somehow became my safest place.
+Whenever life gets difficult, thinking about you makes everything feel lighter.
+❤️
+</div>
+</div>
+
+<div class="card" onclick="openCard(this)">
+<h3>Open Sunflower #2 🌻</h3>
+<div class="message">
+Your smile is genuinely my favorite view.
+Nothing in this world makes me happier than seeing you smile.
+🥺💕
+</div>
+</div>
+
+<div class="card" onclick="openCard(this)">
+<h3>Open Sunflower #3 🌻</h3>
+<div class="message">
+I don't want a perfect life.
+I just want a life where you're there beside me,
+making every ordinary day magical.
+🌻❤️
+</div>
+</div>
+
+</div>
+
+<button class="btn" id="proposalBtn" onclick="showPage(3)">
+One More Thing, My Sunflower 🌻
+</button>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="stars" id="stars"></div>
+
+<div class="proposal-container">
+
+<div class="proposal-animation" id="proposalAnim">
+🤵 ➜ ➜ ➜ 👸
+</div>
+<div class="proposal-text" id="proposalText">
+
+<p>
+Boo Boo ❤️
+</p>
+
+<p>
+You are my favorite smile,
+my favorite notification,
+my favorite person,
+and my favorite future.
+</p>
+
+<p>
+No matter where life takes us,
+I want to keep choosing you,
+every single day.
+</p>
+
+<p>
+I want to celebrate your victories,
+hold your hand during difficult days,
+annoy you with random messages,
+and love you endlessly.
+</p>
+
+<p>
+So here's my question...
+</p>
+
+<h2 style="margin-top:20px;color:#ffd700;">
+Will You Stay With Me Forever? 💍❤️
+</h2>
+
+</div>
+
+<div class="choice-buttons" id="choiceButtons">
+
+<button onclick="celebrate()">
+YES, FOREVER ❤️
+</button>
+
+<button onclick="celebrate()">
+ABSOLUTELY YES ❤️
+</button>
+
+</div>
+
+<div class="final-message" id="finalMessage">
+🎉🌻 YAYYYYY BOO BOO! 🌻🎉<br><br>
+Forever Starts Now ❤️<br><br>
+Koko ❤️ + Boo Boo ❤️<br>
+= ♾️ Infinite Love ♾️
+</div>
+
 </div>
 
 </div>
 
 <script>
 
-function createHeart(){
+/* Floating Hearts */
 
-const heart=document.createElement("div");
+const heartsContainer = document.getElementById("hearts");
 
-heart.className="floating-heart";
+setInterval(() => {
 
-heart.innerHTML=["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
+const heart = document.createElement("div");
 
-heart.style.left=Math.random()*100+"vw";
+heart.className = "heart";
+heart.innerHTML = "❤️";
 
-heart.style.animationDuration=
-(5+Math.random()*4)+"s";
+heart.style.left = Math.random()*100 + "%";
+heart.style.fontSize = (20 + Math.random()*20) + "px";
+heart.style.animationDuration = (5 + Math.random()*5) + "s";
 
-document.body.appendChild(heart);
+heartsContainer.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},9000);
+},10000);
+
+},300);
+
+
+/* Cuteness Meter */
+
+let progress = 0;
+
+const meter = document.getElementById("meter");
+
+const interval = setInterval(()=>{
+
+progress++;
+
+meter.style.width = Math.min(progress,120)/1.2 + "%";
+meter.innerHTML = progress + "%";
+
+if(progress >= 120){
+
+clearInterval(interval);
+
+document.getElementById("cuteMsg").style.display="block";
+document.getElementById("nextBtn").style.display="inline-block";
 
 }
 
-setInterval(createHeart,400);
+},40);
 
-function firework(){
 
-for(let i=0;i<15;i++){
+/* Page Navigation */
 
-const f=document.createElement("div");
+function showPage(page){
 
-f.className="firework";
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
 
-f.style.left=
-(Math.random()*90+5)+"vw";
+document.getElementById("page"+page).classList.add("active");
 
-f.style.top=
-(Math.random()*60+10)+"vh";
+if(page===3){
+startProposal();
+}
 
-document.body.appendChild(f);
+}
+
+
+/* Sunflowers */
+
+for(let i=0;i<25;i++){
+
+const flower = document.createElement("div");
+
+flower.className = "sunflower";
+flower.innerHTML = "🌻";
+
+flower.style.left = Math.random()*100 + "%";
+flower.style.animationDuration = (6+Math.random()*8)+"s";
+
+document.body.appendChild(flower);
+
+}
+
+
+/* Cards */
+
+let openedCards = 0;
+
+function openCard(card){
+
+if(card.classList.contains("open")) return;
+
+card.classList.add("open");
+
+card.querySelector(".message").style.display="block";
+
+openedCards++;
+
+if(openedCards===3){
+
+document.getElementById("proposalBtn").style.display="inline-block";
+
+}
+
+}
+
+
+/* Stars */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+const star = document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+stars.appendChild(star);
+
+}
+
+
+/* Proposal Animation */
+
+function startProposal(){
+
+const anim = document.getElementById("proposalAnim");
+
+const sequence = [
+
+"🤵 ➜ ➜ ➜ 👸",
+"🤵 ➜ 👸",
+"🤵💍",
+"💍❤️",
+"🥺❤️"
+
+];
+
+let index = 0;
+
+const proposalInterval = setInterval(()=>{
+
+anim.innerHTML = sequence[index];
+
+index++;
+
+if(index >= sequence.length){
+
+clearInterval(proposalInterval);
 
 setTimeout(()=>{
-f.remove();
-},1800);
+
+document.getElementById("proposalText").style.display="block";
+
+setTimeout(()=>{
+
+document.getElementById("choiceButtons").style.display="block";
+
+},1000);
+
+},1000);
+
+}
+
+},1500);
+
+}
+
+
+/* Celebration */
+
+function celebrate(){
+
+document.getElementById("finalMessage").style.display="block";
+
+for(let i=0;i<120;i++){
+
+const confetti = document.createElement("div");
+
+confetti.className = "confetti";
+
+const items = ["❤️","🌻","💕","💖","✨"];
+
+confetti.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+confetti.style.left = Math.random()*100 + "%";
+
+confetti.style.animationDuration =
+(3 + Math.random()*4) + "s";
+
+document.body.appendChild(confetti);
+
+setTimeout(()=>{
+confetti.remove();
+},7000);
 
 }
 
 }
-
-window.onload=function(){
-
-firework();
-
-setTimeout(firework,600);
-
-setTimeout(firework,1200);
-
-};
 
 </script>
 
